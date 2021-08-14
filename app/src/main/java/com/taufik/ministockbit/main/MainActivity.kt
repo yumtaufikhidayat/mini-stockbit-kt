@@ -1,4 +1,4 @@
-package com.taufik.ministockbit
+package com.taufik.ministockbit.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

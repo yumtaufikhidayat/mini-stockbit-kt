@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "724981696391",
+    "project_id": "mini-stockbit-9d339",
+    "storage_bucket": "mini-stockbit-9d339.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:724981696391:android:63a33f23ca09f9b1c77522",
+        "android_client_info": {
+          "package_name": "com.taufik.ministockbit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "724981696391-6c0nkbu6qmrtap1o0ibrhlk2pquh90hr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.taufik.ministockbit",
+            "certificate_hash": "c9810da589c06752cae42db409a3ac40d3a6e21c"
+          }
+        },
+        {
+          "client_id": "724981696391-5sjp1dd10rohcm1reh8mvh7so64s8k8t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4laJvZMII7cJECWUkImjPzBM6lqGEFSo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "724981696391-5sjp1dd10rohcm1reh8mvh7so64s8k8t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
