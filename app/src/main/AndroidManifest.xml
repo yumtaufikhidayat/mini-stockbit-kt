@@ -11,10 +11,13 @@
         android:theme="@style/Theme.MiniStockbit">
         <activity
             android:name=".MainActivity"
+            android:exported="true"
+            android:theme="@style/ThemeHasActionBar"/>
+        <activity
+            android:name=".splashscreen.SplashscreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
