@@ -6,7 +6,7 @@ import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import com.taufik.ministockbit.databinding.ActivitySplashscreenBinding
-import com.taufik.ministockbit.main.MainActivity
+import com.taufik.ministockbit.auth.AuthActivity
 
 class SplashscreenActivity : AppCompatActivity() {
 
@@ -24,7 +24,7 @@ class SplashscreenActivity : AppCompatActivity() {
     private fun setSplashScreen() {
         handler = Handler(Looper.getMainLooper())
         handler.postDelayed({
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, AuthActivity::class.java)
             startActivity(intent)
             finish()
         }, 1000)

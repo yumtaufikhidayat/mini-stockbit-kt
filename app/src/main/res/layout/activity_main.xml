@@ -1,241 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".main.MainActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarLogin"
-        android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textSize="16sp"
-            android:text="@string/tvLogin"/>
-
-    </androidx.appcompat.widget.Toolbar>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/llGoogleLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp"
-        android:layout_marginHorizontal="20dp"
-        android:padding="5dp"
-        android:background="@drawable/background_stroke_black"
-        app:layout_constraintTop_toBottomOf="@id/toolbarLogin">
-
-        <ImageView
-            android:id="@+id/imgGoogle"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginStart="5dp"
-            android:src="@drawable/google_icon"
-            android:contentDescription="@null"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/tvGoogleLogin"
-            android:textColor="@color/black"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/imgGoogle"
-            app:layout_constraintBottom_toBottomOf="@id/imgGoogle"/>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/llFacebookLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp"
-        android:layout_marginHorizontal="20dp"
-        android:padding="5dp"
-        android:background="@drawable/background_stroke_black"
-        app:layout_constraintTop_toBottomOf="@id/llGoogleLogin">
-
-        <ImageView
-            android:id="@+id/imgFacebook"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginStart="5dp"
-            android:src="@drawable/facebook_logo"
-            android:contentDescription="@null"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/tvFacebookLogin"
-            android:textColor="@color/black"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/imgFacebook"
-            app:layout_constraintBottom_toBottomOf="@id/imgFacebook"/>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <LinearLayout
-        android:id="@+id/llAnotherLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="20dp"
-        android:layout_marginHorizontal="20dp"
-        android:weightSum="3"
-        android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/llFacebookLogin">
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="1"
-            android:background="@color/browser_actions_bg_grey"/>
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/tvOr"
-            android:textColor="@color/black"/>
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="1"
-            android:background="@color/browser_actions_bg_grey"/>
-
-    </LinearLayout>
-
-    <EditText
-        android:id="@+id/etUsernameEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginHorizontal="20dp"
-        android:autofillHints="Username or Email"
-        android:hint="@string/tvUsernameEmail"
-        android:inputType="textEmailAddress"
-        android:textSize="14sp"
-        app:layout_constraintTop_toBottomOf="@id/llAnotherLogin"
-        app:layout_constraintStart_toStartOf="@id/llFacebookLogin"
-        app:layout_constraintEnd_toEndOf="@id/llFacebookLogin"/>
-
-    <RelativeLayout
-        android:id="@+id/rlPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/etUsernameEmail"
-        app:layout_constraintStart_toStartOf="@id/etUsernameEmail"
-        app:layout_constraintEnd_toEndOf="@id/etUsernameEmail">
-
-        <EditText
-            android:id="@+id/etPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginHorizontal="20dp"
-            android:autofillHints="Password"
-            android:hint="@string/tvPassword"
-            android:inputType="textPassword"
-            android:textSize="14sp"/>
-
-        <ImageView
-            android:id="@+id/imgEyePassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_eye_password"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="23dp"/>
-
-    </RelativeLayout>
-
     <TextView
-        android:id="@+id/tvForgotPassword"
-        android:layout_width="wrap_content"
+        android:id="@+id/tvLoggedIn"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/tvForgotPassword"
-        android:textColor="@color/teal_200"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintEnd_toEndOf="@id/rlPassword"
-        app:layout_constraintTop_toBottomOf="@id/rlPassword"/>
+        tools:text="@string/tvLoggedInAs"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btnLogout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <Button
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnLogout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="@string/btnLogin"
-        android:textColor="@color/white"
-        android:textAllCaps="false"
-        android:layout_marginHorizontal="20dp"
+        android:layout_margin="10dp"
         android:background="@drawable/background_corner"
+        android:text="@string/btnLogout"
+        android:textAllCaps="false"
+        android:focusable="true"
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground"
         style="?android:attr/borderlessButtonStyle"
-        android:focusable="true"
-        android:clickable="true"
-        android:foreground="?android:attr/selectableItemBackground"
-        app:layout_constraintTop_toBottomOf="@id/tvForgotPassword"
-        app:layout_constraintStart_toStartOf="@id/rlPassword"
-        app:layout_constraintEnd_toEndOf="@id/rlPassword"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="30dp"
-        android:weightSum="2"
-        android:layout_marginHorizontal="20dp"
-        android:padding="5dp"
-        android:gravity="center"
-        android:focusable="true"
-        android:clickable="true"
-        android:foreground="?android:attr/selectableItemBackground"
-        app:layout_constraintTop_toBottomOf="@id/btnLogin"
-        app:layout_constraintStart_toStartOf="@id/btnLogin"
-        app:layout_constraintEnd_toEndOf="@id/btnLogin">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:text="@string/tvHaveAccount"
-            android:gravity="end"
-            android:layout_weight="1"/>
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="3dp"
-            android:textColor="@color/purple_700"
-            android:text="@string/tvRegisterNow"
-            android:textStyle="bold"
-            android:layout_weight="1"/>
-
-    </LinearLayout>
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

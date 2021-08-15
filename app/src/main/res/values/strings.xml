@@ -12,7 +12,10 @@
     <string name="tvForgotPassword">Lupa Password</string>
     <string name="tvHaveAccount">Belum punya akun?</string>
     <string name="tvRegisterNow"> Daftar sekarang</string>
+    <string name="tvLoggedInAs">Kamu telah terdaftar sebagai</string>
 
     // Button
     <string name="btnLogin">Login</string>
+    <string name="btnLogout">Logout</string>
+
 </resources>
