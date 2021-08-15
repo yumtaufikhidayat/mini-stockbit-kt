@@ -54,6 +54,9 @@
         android:layout_marginHorizontal="20dp"
         android:padding="5dp"
         android:background="@drawable/background_stroke_black"
+        android:focusable="true"
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground"
         app:layout_constraintTop_toBottomOf="@id/llGoogleLogin">
 
         <ImageView
@@ -187,39 +190,24 @@
         app:layout_constraintStart_toStartOf="@id/rlPassword"
         app:layout_constraintEnd_toEndOf="@id/rlPassword"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/tvLoginNow"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_marginTop="30dp"
         android:weightSum="2"
         android:layout_marginHorizontal="20dp"
         android:padding="5dp"
-        android:gravity="center"
         android:focusable="true"
         android:clickable="true"
         android:foreground="?android:attr/selectableItemBackground"
+        android:layout_marginStart="3dp"
+        android:text="@string/tvHaventAccount"
+        android:textStyle="bold"
+        android:layout_weight="1"
+        android:gravity="center"
         app:layout_constraintTop_toBottomOf="@id/btnLogin"
         app:layout_constraintStart_toStartOf="@id/btnLogin"
-        app:layout_constraintEnd_toEndOf="@id/btnLogin">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:text="@string/tvHaveAccount"
-            android:gravity="end"
-            android:layout_weight="1"/>
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="3dp"
-            android:textColor="@color/purple_700"
-            android:text="@string/tvRegisterNow"
-            android:textStyle="bold"
-            android:layout_weight="1"/>
-
-    </LinearLayout>
+        app:layout_constraintEnd_toEndOf="@id/btnLogin"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -53,6 +53,8 @@ class LoginFragment : Fragment() {
         setGoogleSignIn()
 
         setLoginButton()
+        
+        setOnClickRegister()
     }
 
     /*
@@ -141,9 +143,10 @@ class LoginFragment : Fragment() {
                 }
 
                 // start main activity, intent to home fragment
-//                startActivity(Intent(requireActivity(), MainActivity::class.java))
+//                val intent = LoginFragmentDirections.actionLoginFragmentToMainFragment()
+//                findNavController().navigate(intent)
 
-            }.addOnFailureListener{ e->
+            }.addOnFailureListener{ e ->
                 // login failed
                 Log.d(TAG, "firebaseAuthWithGoogleAccount: Login failed due to ${e.message}")
                 Toast.makeText(requireActivity(), "Login failed due to ${e.message}", Toast.LENGTH_SHORT).show()
@@ -153,7 +156,17 @@ class LoginFragment : Fragment() {
     private fun setLoginButton() {
         binding.apply {
             btnLogin.setOnClickListener{
-                // do something
+                val intent = LoginFragmentDirections.actionLoginFragmentToMainFragment()
+                findNavController().navigate(intent)
+            }
+        }
+    }
+
+    private fun setOnClickRegister() {
+        binding.apply {
+            tvLoginNow.setOnClickListener {
+                val intent = LoginFragmentDirections.actionLoginFragmentToRegisterFragment()
+                findNavController().navigate(intent)
             }
         }
     }
