@@ -44,6 +44,13 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_registerFragment_to_registerUsingEmailFragment"
+            app:destination="@id/registerUsingEmailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/mainFragment"
@@ -55,4 +62,9 @@
         android:name="com.taufik.ministockbit.auth.fragment.ForgotPasswordFragment"
         android:label="fragment_forgot_password"
         tools:layout="@layout/fragment_forgot_password" />
+    <fragment
+        android:id="@+id/registerUsingEmailFragment"
+        android:name="com.taufik.ministockbit.auth.fragment.RegisterUsingEmailFragment"
+        android:label="fragment_register_using_email"
+        tools:layout="@layout/fragment_register_using_email" />
 </navigation>

@@ -25,7 +25,18 @@ class RegisterFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setOnRegisterButton()
+
         setOnClickLoginText()
+    }
+
+    private fun setOnRegisterButton() {
+        binding.apply {
+            btnRegisterEmail.setOnClickListener {
+                val intent = RegisterFragmentDirections.actionRegisterFragmentToRegisterUsingEmailFragment()
+                findNavController().navigate(intent)
+            }
+        }
     }
 
     private fun setOnClickLoginText() {
