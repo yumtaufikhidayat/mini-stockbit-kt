@@ -1,4 +1,4 @@
-package com.taufik.ministockbit.auth
+package com.taufik.ministockbit.auth.activity
 
 import android.content.Intent
 import android.os.Bundle

@@ -4,8 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.taufik.ministockbit.R
-import com.taufik.ministockbit.auth.AuthActivity
+import com.taufik.ministockbit.auth.activity.AuthActivity
 import com.taufik.ministockbit.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

@@ -15,11 +15,12 @@
             android:name=".main.MainActivity"
             android:exported="true" />
         <activity
-            android:name=".auth.AuthActivity"
+            android:name=".auth.activity.AuthActivity"
             android:exported="true" />
         <activity
             android:name=".splashscreen.SplashscreenActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/ThemeNoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

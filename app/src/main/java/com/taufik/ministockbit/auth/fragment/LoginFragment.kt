@@ -1,4 +1,4 @@
-package com.taufik.ministockbit.login
+package com.taufik.ministockbit.auth.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -19,6 +19,10 @@ class LoginFragment : Fragment() {
     ): View {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
     }
 
     override fun onDestroyView() {

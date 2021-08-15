@@ -6,7 +6,7 @@ import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import com.taufik.ministockbit.databinding.ActivitySplashscreenBinding
-import com.taufik.ministockbit.auth.AuthActivity
+import com.taufik.ministockbit.auth.activity.AuthActivity
 
 class SplashscreenActivity : AppCompatActivity() {
 
