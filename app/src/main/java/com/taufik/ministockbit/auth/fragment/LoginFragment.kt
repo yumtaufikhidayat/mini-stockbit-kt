@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -50,6 +51,8 @@ class LoginFragment : Fragment() {
         checkUser()
 
         setGoogleSignIn()
+
+        setLoginButton()
     }
 
     /*
@@ -81,7 +84,8 @@ class LoginFragment : Fragment() {
         val firebaseUser = firebaseAuth.currentUser
         if (firebaseUser != null) {
             // user already logged in, intent to home fragment
-//            startActivity(Intent(requireActivity(), MainActivity::class.java))
+            val action = LoginFragmentDirections.actionLoginFragmentToMainFragment()
+            findNavController().navigate(action)
         }
     }
 
@@ -144,6 +148,14 @@ class LoginFragment : Fragment() {
                 Log.d(TAG, "firebaseAuthWithGoogleAccount: Login failed due to ${e.message}")
                 Toast.makeText(requireActivity(), "Login failed due to ${e.message}", Toast.LENGTH_SHORT).show()
             }
+    }
+
+    private fun setLoginButton() {
+        binding.apply {
+            btnLogin.setOnClickListener{
+                // do something
+            }
+        }
     }
 
     override fun onDestroyView() {

@@ -13,5 +13,10 @@ class AuthActivity : AppCompatActivity() {
         binding = ActivityAuthBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        initActionBar()
+    }
+
+    private fun initActionBar() {
+        supportActionBar?.elevation = 0F
     }
 }

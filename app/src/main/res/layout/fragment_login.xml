@@ -7,25 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".auth.fragment.LoginFragment">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarLogin"
-        android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textSize="16sp"
-            android:text="@string/tvLogin"/>
-
-    </androidx.appcompat.widget.Toolbar>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/llGoogleLogin"
         android:layout_width="match_parent"
@@ -38,7 +19,7 @@
         android:focusable="true"
         android:clickable="true"
         android:foreground="?android:attr/selectableItemBackground"
-        app:layout_constraintTop_toBottomOf="@id/toolbarLogin">
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/imgGoogle"
@@ -80,7 +61,7 @@
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_marginStart="5dp"
-            android:src="@drawable/facebook_logo"
+            android:src="@drawable/ic_facebook_logo"
             android:contentDescription="@null"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
