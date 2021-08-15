@@ -6,7 +6,11 @@
         <entry key="app/src/main/res/drawable/background_corner.xml" value="0.17552083333333332" />
         <entry key="app/src/main/res/drawable/background_stroke_black.xml" value="0.17552083333333332" />
         <entry key="app/src/main/res/drawable/ic_baseline_arrow_back.xml" value="0.17552083333333332" />
+        <entry key="app/src/main/res/drawable/ic_eye_off_password.xml" value="0.19895833333333332" />
+        <entry key="app/src/main/res/drawable/ic_eye_on_password.xml" value="0.19895833333333332" />
+        <entry key="app/src/main/res/drawable/ic_eye_password.xml" value="0.19895833333333332" />
         <entry key="app/src/main/res/drawable/ic_facebook_logo.xml" value="0.19895833333333332" />
+        <entry key="app/src/main/res/drawable/show_password_selector.xml" value="0.19895833333333332" />
         <entry key="app/src/main/res/layout/abs_layout.xml" value="0.159375" />
         <entry key="app/src/main/res/layout/action_bar_home.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_auth.xml" value="0.16" />
@@ -14,6 +18,7 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_splashscreen.xml" value="0.159375" />
         <entry key="app/src/main/res/layout/fraagment_login.xml" value="0.159375" />
+        <entry key="app/src/main/res/layout/fragment_forgot_password.xml" value="0.1828125" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.159375" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.2" />
         <entry key="app/src/main/res/layout/fragment_main.xml" value="0.1828125" />

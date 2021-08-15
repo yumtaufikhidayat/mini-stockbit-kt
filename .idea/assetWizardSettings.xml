@@ -322,7 +322,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="file:$USER_HOME$/Android/Sdk/icons/material/materialiconsoutlined/facebook/outline_facebook_24.xml" />
+                                      <entry key="url" value="file:$USER_HOME$/Android/Sdk/icons/material/materialicons/visibility_off/baseline_visibility_off_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -332,7 +332,7 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="ic_facebook_logo" />
+                            <entry key="outputName" value="ic_eye_off_password" />
                           </map>
                         </option>
                       </PersistentState>

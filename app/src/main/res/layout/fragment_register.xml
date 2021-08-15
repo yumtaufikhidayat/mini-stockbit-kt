@@ -148,7 +148,6 @@
         android:layout_marginStart="3dp"
         android:text="@string/tvHaveAccount"
         android:textStyle="bold"
-        android:layout_weight="1"
         android:gravity="center"
         app:layout_constraintTop_toBottomOf="@id/btnRegisterEmail"
         app:layout_constraintStart_toStartOf="@id/btnRegisterEmail"

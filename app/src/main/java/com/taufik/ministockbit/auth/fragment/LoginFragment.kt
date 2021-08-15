@@ -55,6 +55,8 @@ class LoginFragment : Fragment() {
         setLoginButton()
         
         setOnClickRegister()
+
+        setOnClickForgotPassword()
     }
 
     /*
@@ -166,6 +168,15 @@ class LoginFragment : Fragment() {
         binding.apply {
             tvLoginNow.setOnClickListener {
                 val intent = LoginFragmentDirections.actionLoginFragmentToRegisterFragment()
+                findNavController().navigate(intent)
+            }
+        }
+    }
+
+    private fun setOnClickForgotPassword() {
+        binding.apply {
+            tvForgotPassword.setOnClickListener {
+                val intent = LoginFragmentDirections.actionLoginFragmentToForgotPasswordFragment()
                 findNavController().navigate(intent)
             }
         }
