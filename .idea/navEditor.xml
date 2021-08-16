@@ -26,7 +26,7 @@
                         <option name="myPosition">
                           <Point>
                             <option name="x" value="500" />
-                            <option name="y" value="54" />
+                            <option name="y" value="325" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -68,8 +68,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="206" />
-                            <option name="y" value="60" />
+                            <option name="x" value="12" />
+                            <option name="y" value="325" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -94,9 +94,18 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="236" />
-                            <option name="y" value="426" />
+                            <option name="x" value="256" />
+                            <option name="y" value="147" />
                           </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_registerUsingEmailFragment_to_loginFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
                         </option>
                       </LayoutPositions>
                     </value>

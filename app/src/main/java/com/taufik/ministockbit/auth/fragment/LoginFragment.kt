@@ -148,8 +148,8 @@ class LoginFragment : Fragment() {
                 }
 
                 // start main activity, intent to home fragment
-//                val intent = LoginFragmentDirections.actionLoginFragmentToMainFragment()
-//                findNavController().navigate(intent)
+                val intent = LoginFragmentDirections.actionLoginFragmentToMainFragment()
+                findNavController().navigate(intent)
 
             }.addOnFailureListener{ e ->
                 // login failed
