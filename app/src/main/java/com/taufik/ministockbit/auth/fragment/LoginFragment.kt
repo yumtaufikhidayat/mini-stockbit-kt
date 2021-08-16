@@ -50,9 +50,9 @@ class LoginFragment : Fragment() {
 
         checkUser()
 
-        setGoogleSignIn()
+        setOnClickGoogleSignIn()
 
-        setLoginButton()
+        setOnClickLoginButton()
         
         setOnClickRegister()
 
@@ -93,7 +93,10 @@ class LoginFragment : Fragment() {
         }
     }
 
-    private fun setGoogleSignIn() {
+    /*
+    * Google sign in dialog will appear if user click on it 
+    */
+    private fun setOnClickGoogleSignIn() {
         binding.apply {
             llGoogleLogin.setOnClickListener{
                 val intent = googleSignInClient.signInIntent
@@ -155,7 +158,11 @@ class LoginFragment : Fragment() {
             }
     }
 
-    private fun setLoginButton() {
+    /*
+    * Handling on click for login button
+    * If user have account, the will click the button
+    */
+    private fun setOnClickLoginButton() {
         binding.apply {
             btnLogin.setOnClickListener{
                 val intent = LoginFragmentDirections.actionLoginFragmentToMainFragment()
@@ -164,6 +171,10 @@ class LoginFragment : Fragment() {
         }
     }
 
+    /*
+    * Handling on click for don't have account text
+    * If users don't have account, they will click on text
+    */
     private fun setOnClickRegister() {
         binding.apply {
             tvLoginNow.setOnClickListener {
@@ -173,6 +184,10 @@ class LoginFragment : Fragment() {
         }
     }
 
+    /*
+    * Handling click for forgot password text
+    * If user forgot their password, the will click on text
+    */
     private fun setOnClickForgotPassword() {
         binding.apply {
             tvForgotPassword.setOnClickListener {
