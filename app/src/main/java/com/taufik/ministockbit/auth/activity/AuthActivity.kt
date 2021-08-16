@@ -47,17 +47,12 @@ class AuthActivity : AppCompatActivity() {
     private fun initActionBar() {
         binding.apply {
             supportActionBar?.elevation = 0F
-
             navController.addOnDestinationChangedListener{_, destination, _ ->
-
                 if (destination.id == R.id.mainFragment) {
                     supportActionBar?.setDisplayHomeAsUpEnabled(false)
                 }
-
                 supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back)
             }
-
-
             toolbarAuth.setTitleTextColor(ContextCompat.getColor(this@AuthActivity, R.color.white))
         }
     }

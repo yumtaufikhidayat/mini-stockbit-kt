@@ -1,6 +1,7 @@
 package com.taufik.ministockbit.main
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
@@ -13,6 +14,10 @@ class MainFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var firebaseAuth: FirebaseAuth
+
+    companion object {
+        const val TAG = "MAIN_FRAGMENT"
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -49,9 +54,7 @@ class MainFragment : Fragment() {
         // get current user
         val firebaseUser = firebaseAuth.currentUser
         if (firebaseUser == null) {
-            // user not logged in, intent to login fragment
-//            startActivity(Intent(requireActivity(), AuthActivity::class.java))
-//            finish()
+            Log.d(TAG, "checkUser: ")
         } else {
             // user logged in and get user info
             binding.apply {
