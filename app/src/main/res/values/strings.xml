@@ -2,7 +2,7 @@
     // App name
     <string name="app_name">Mini Stockbit</string>
 
-    // Other strings
+    // Login, register, and forgot password
     <string name="tvLogin">Masuk</string>
     <string name="tvOr">Atau</string>
     <string name="tvGoogleLogin">Masuk dengan Google</string>
@@ -10,16 +10,21 @@
     <string name="tvFacebookLogin">Masuk dengan Facebook</string>
     <string name="tvFacebookRegister">Daftar dengan Facebook</string>
     <string name="tvUsernameEmail">Username or Email</string>
+    <string name="tvUsername">Username</string>
+    <string name="tvEmail">Email</string>
     <string name="tvPassword">Password</string>
     <string name="tvForgotPassword">Lupa Password</string>
     <string name="tvHaventAccount">Belum punya akun? <font color='#FF3700B3'>Daftar</font></string>
     <string name="tvHaveAccount">Sudah punya akun? <font color='#FF3700B3'>Masuk</font></string>
     <string name="tvRegisterNow"> Daftar sekarang</string>
     <string name="tvLoggedInAs">Kamu telah terdaftar sebagai</string>
+    <string name="tvFulname">Nama Lengkap</string>
 
     // Button
     <string name="btnLogin">Login</string>
     <string name="btnLogout">Logout</string>
+    <string name="btnRegister">Daftar</string>
     <string name="btnRegisterEmail">Daftar dengan Email</string>
+    <string name="btnNext">Selanjutnya</string>
 
 </resources>
