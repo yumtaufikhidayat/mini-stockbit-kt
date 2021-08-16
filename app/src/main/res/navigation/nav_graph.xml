@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.taufik.ministockbit.auth.fragment.LoginFragment"
-        android:label="fragment_login"
+        android:label="Masuk"
         tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_mainFragment"
@@ -36,8 +36,8 @@
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.taufik.ministockbit.auth.fragment.RegisterFragment"
-        android:label="fragment_register"
-        tools:layout="@layout/fragment_register" >
+        android:label="Daftar"
+        tools:layout="@layout/fragment_register">
         <action
             android:id="@+id/action_registerFragment_to_loginFragment"
             app:destination="@id/loginFragment"
@@ -56,30 +56,32 @@
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.taufik.ministockbit.main.MainFragment"
-        android:label="fragment_main"
-        tools:layout="@layout/fragment_main" >
+        android:label="Beranda"
+        tools:layout="@layout/fragment_main">
         <action
             android:id="@+id/action_mainFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/forgotPasswordFragment"
         android:name="com.taufik.ministockbit.auth.fragment.ForgotPasswordFragment"
-        android:label="fragment_forgot_password"
-        tools:layout="@layout/fragment_forgot_password" >
+        android:label="Lupa Password"
+        tools:layout="@layout/fragment_forgot_password">
         <action
             android:id="@+id/action_forgotPasswordFragment_to_loginFragment"
             app:destination="@id/loginFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/registerUsingEmailFragment"
         android:name="com.taufik.ministockbit.auth.fragment.RegisterUsingEmailFragment"
-        android:label="fragment_register_using_email"
-        tools:layout="@layout/fragment_register_using_email" >
+        android:label="Daftar Akun Baru"
+        tools:layout="@layout/fragment_register_using_email">
         <action
             android:id="@+id/action_registerUsingEmailFragment_to_loginFragment"
             app:destination="@id/loginFragment"

@@ -157,7 +157,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="@string/tvForgotPassword"
-        android:textColor="@color/teal_200"
+        android:textColor="@color/colorGreenForest"
         android:focusable="true"
         android:clickable="true"
         android:foreground="?android:attr/selectableItemBackground"

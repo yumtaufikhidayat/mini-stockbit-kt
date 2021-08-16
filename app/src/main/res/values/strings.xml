@@ -15,8 +15,8 @@
     <string name="tvForgotPassword">Lupa Password</string>
     <string name="tvForgotPasswordDesc">Masukkan alamat email Anda yang sudah terdaftar di
         Mini Stockbit untuk membuat password baru</string>
-    <string name="tvHaventAccount">Belum punya akun? <font color='#FF3700B3'>Daftar</font></string>
-    <string name="tvHaveAccount">Sudah punya akun? <font color='#FF3700B3'>Masuk</font></string>
+    <string name="tvHaventAccount">Belum punya akun? <font color='#228B22'>Daftar</font></string>
+    <string name="tvHaveAccount">Sudah punya akun? <font color='#228B22'>Masuk</font></string>
     <string name="tvRegisterNow"> Daftar sekarang</string>
     <string name="tvLoggedInAs">Kamu telah terdaftar sebagai</string>
     <string name="tvFulname">Nama Lengkap</string>

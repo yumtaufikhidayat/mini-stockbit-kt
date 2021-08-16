@@ -157,7 +157,7 @@ class LoginFragment : Fragment() {
                     Toast.makeText(requireActivity(), "Login successful", Toast.LENGTH_SHORT).show()
                 }
 
-                // start main activity, intent to home fragment
+                // start login fragment, navigate to home fragment
                 val intent = LoginFragmentDirections.actionLoginFragmentToMainFragment()
                 findNavController().navigate(intent)
 

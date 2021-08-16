@@ -92,7 +92,7 @@
         android:text="@string/btnRegister"
         android:textColor="@color/white"
         android:textAllCaps="false"
-        android:background="@color/purple_700"
+        android:background="@color/colorGreenForest"
         style="?android:attr/borderlessButtonStyle"
         android:focusable="true"
         android:clickable="true"

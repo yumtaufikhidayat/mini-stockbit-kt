@@ -98,6 +98,8 @@ class ForgotPasswordFragment : Fragment() {
                         "Tautan reset password telah dikirim. Periksa email Anda untuk reset password.",
                         Toast.LENGTH_SHORT)
                         .show()
+
+                    // navigate to login
                     val intent = ForgotPasswordFragmentDirections.actionForgotPasswordFragmentToLoginFragment()
                     findNavController().navigate(intent)
                 } else {

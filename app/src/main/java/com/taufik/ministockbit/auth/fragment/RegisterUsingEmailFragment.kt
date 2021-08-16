@@ -123,6 +123,7 @@ class RegisterUsingEmailFragment : Fragment() {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(requireActivity()){
                 if (it.isSuccessful) {
+                    // navigate from register using email to login fragment
                     val intent = RegisterUsingEmailFragmentDirections.actionRegisterUsingEmailFragmentToLoginFragment()
                     findNavController().navigate(intent)
                 } else {

@@ -139,7 +139,7 @@ class RegisterFragment : Fragment() {
                     Toast.makeText(requireActivity(), "Login successful", Toast.LENGTH_SHORT).show()
                 }
 
-                // start main activity, intent to home fragment
+                // start register fragment, navigate to login fragment
                 val intent = RegisterFragmentDirections.actionRegisterFragmentToLoginFragment()
                 findNavController().navigate(intent)
 
