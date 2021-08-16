@@ -18,7 +18,7 @@
     <string name="tvLoggedInAs">Kamu telah terdaftar sebagai</string>
     <string name="tvFulname">Nama Lengkap</string>
     <string name="tvContactUs">Contact us</string>
-    <string name="tvNotification">Notifikasi</string>
+    <string name="tvNotifications">Notifications</string>
 
     // Button
     <string name="btnLogin">Login</string>

@@ -31,6 +31,7 @@
         <entry key="app/src/main/res/layout/fragment_splashscreen.xml" value="0.159375" />
         <entry key="app/src/main/res/layout/fragment_stream.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_watchlist.xml" value="0.1" />
+        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.1828125" />
         <entry key="app/src/main/res/menu/menu_auth.xml" value="0.1828125" />
         <entry key="app/src/main/res/menu/menu_main.xml" value="0.1828125" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />

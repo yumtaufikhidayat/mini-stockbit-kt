@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/nav_notification"
-        android:title="@string/tvNotification"
+        android:title="@string/tvNotifications"
         android:menuCategory="secondary"
         android:icon="@drawable/ic_outline_notification"
         app:showAsAction="ifRoom"/>
