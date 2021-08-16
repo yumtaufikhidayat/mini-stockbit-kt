@@ -1,8 +1,5 @@
 <resources>
-    // App name
     <string name="app_name">Mini Stockbit</string>
-
-    // Login, register, and forgot password
     <string name="tvLogin">Masuk</string>
     <string name="tvOr">Atau</string>
     <string name="tvGoogleLogin">Masuk dengan Google</string>
@@ -20,6 +17,8 @@
     <string name="tvRegisterNow"> Daftar sekarang</string>
     <string name="tvLoggedInAs">Kamu telah terdaftar sebagai</string>
     <string name="tvFulname">Nama Lengkap</string>
+    <string name="tvContactUs">Contact us</string>
+    <string name="tvNotification">Notifikasi</string>
 
     // Button
     <string name="btnLogin">Login</string>

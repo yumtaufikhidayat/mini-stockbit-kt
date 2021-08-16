@@ -1,11 +1,10 @@
 package com.taufik.ministockbit.main
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
+import com.taufik.ministockbit.R
 import com.taufik.ministockbit.databinding.FragmentMainBinding
 
 class MainFragment : Fragment() {
@@ -26,6 +25,8 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        setHasOptionsMenu(true)
 
         initFirebase()
 
@@ -70,6 +71,15 @@ class MainFragment : Fragment() {
                 checkUser()
             }
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+
+        val item = menu.findItem(R.id.nav_contact_us)
+        item.isVisible = false
+
+        inflater.inflate(R.menu.menu_main, menu)
+        super.onCreateOptionsMenu(menu, inflater)
     }
 
     override fun onDestroyView() {
