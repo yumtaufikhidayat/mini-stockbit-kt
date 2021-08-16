@@ -12,9 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MiniStockbit">
         <activity
-            android:name=".main.MainFragment"
-            android:exported="true" />
-        <activity
             android:name=".auth.activity.AuthActivity"
             android:exported="true"/>
         <activity

@@ -47,7 +47,6 @@ class RegisterUsingEmailFragment : Fragment() {
         auth = FirebaseAuth.getInstance()
     }
 
-
     /*
     * Handling click for register button
     * If user want to register using email, they will click on this button
