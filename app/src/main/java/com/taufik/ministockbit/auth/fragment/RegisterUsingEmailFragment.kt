@@ -103,7 +103,6 @@ class RegisterUsingEmailFragment : Fragment() {
                 return
             }
 
-
             if (password.isEmpty() || password.length < 6) {
                 etPassword.error = "Password harus lebih dari 6 karakter"
                 etPassword.requestFocus()

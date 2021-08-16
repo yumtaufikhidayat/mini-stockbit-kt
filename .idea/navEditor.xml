@@ -110,6 +110,18 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="splashscreenActivity">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-2" />
+                            <option name="y" value="-497" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                 </map>
               </option>
             </LayoutPositions>

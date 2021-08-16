@@ -117,13 +117,13 @@
     </LinearLayout>
 
     <EditText
-        android:id="@+id/etUsernameEmail"
+        android:id="@+id/etEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginHorizontal="20dp"
-        android:autofillHints="Username or Email"
-        android:hint="@string/tvUsernameEmail"
+        android:autofillHints="Email"
+        android:hint="@string/tvEmail"
         android:inputType="textEmailAddress"
         android:textSize="14sp"
         app:layout_constraintTop_toBottomOf="@id/llAnotherLogin"
@@ -138,7 +138,7 @@
         app:hintEnabled="false"
         app:passwordToggleEnabled="true"
         app:passwordToggleDrawable="@drawable/show_password_selector"
-        app:layout_constraintTop_toBottomOf="@id/etUsernameEmail">
+        app:layout_constraintTop_toBottomOf="@id/etEmail">
 
         <EditText
             android:id="@+id/etPassword"

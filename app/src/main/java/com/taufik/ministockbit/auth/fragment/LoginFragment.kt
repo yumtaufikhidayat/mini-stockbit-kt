@@ -3,6 +3,7 @@ package com.taufik.ministockbit.auth.fragment
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,11 +26,12 @@ class LoginFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var googleSignInClient: GoogleSignInClient
-    private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var auth: FirebaseAuth
 
     companion object {
         const val CODE_SIGN_IN = 1000
         const val TAG = "TAG_GOOGLE_SIGN_IN"
+        const val TAG_LOGIN = "TAG_LOGIN"
     }
 
     override fun onCreateView(
@@ -46,14 +48,22 @@ class LoginFragment : Fragment() {
 
         setConfigGoogleSignIn()
 
-        setInitFirebase()
+        initFirebase()
 
         checkUser()
+
+        setHandlingOnClick()
+    }
+
+    /*
+    * Handling for all on click events
+    */
+    private fun setHandlingOnClick() {
 
         setOnClickGoogleSignIn()
 
         setOnClickLoginButton()
-        
+
         setOnClickRegister()
 
         setOnClickForgotPassword()
@@ -74,10 +84,10 @@ class LoginFragment : Fragment() {
     }
 
     /*
-    * Init firebase
+    * Initialize firebase
     */
-    private fun setInitFirebase() {
-        firebaseAuth = FirebaseAuth.getInstance()
+    private fun initFirebase() {
+        auth = FirebaseAuth.getInstance()
     }
 
     /*
@@ -85,7 +95,7 @@ class LoginFragment : Fragment() {
     */
     private fun checkUser() {
         // check user is logged in or not
-        val firebaseUser = firebaseAuth.currentUser
+        val firebaseUser = auth.currentUser
         if (firebaseUser != null) {
             // user already logged in, intent to home fragment
             val action = LoginFragmentDirections.actionLoginFragmentToMainFragment()
@@ -112,7 +122,7 @@ class LoginFragment : Fragment() {
             val accountTask = GoogleSignIn.getSignedInAccountFromIntent(data)
             try {
                 val account = accountTask.getResult(ApiException::class.java)
-                firebaseAuthWithGoogleAccount(account)
+                authWithGoogleAccount(account)
             } catch (e: Exception) {
                 Log.d(TAG, "onActivityResult: ${e.message}")
             }
@@ -122,28 +132,28 @@ class LoginFragment : Fragment() {
     /*
     * Auth firebase using Google account
     */
-    private fun firebaseAuthWithGoogleAccount(account: GoogleSignInAccount?) {
-        Log.d(TAG, "firebaseAuthWithGoogleAccount: ")
+    private fun authWithGoogleAccount(account: GoogleSignInAccount?) {
+        Log.d(TAG, "authWithGoogleAccount: ")
         val credential = GoogleAuthProvider.getCredential(account!!.idToken, null)
-        firebaseAuth.signInWithCredential(credential)
+        auth.signInWithCredential(credential)
             .addOnSuccessListener { authResult ->
-                Log.d(TAG, "firebaseAuthWithGoogleAccount: ")
+                Log.d(TAG, "authWithGoogleAccount: ")
 
                 // get logged in user and get user info
-                val firebaseUser = firebaseAuth.currentUser
+                val firebaseUser = auth.currentUser
                 val uid = firebaseUser!!.uid
                 val email = firebaseUser.email
 
-                Log.d(TAG, "firebaseAuthWithGoogleAccount: Uid: $uid")
-                Log.d(TAG, "firebaseAuthWithGoogleAccount: Email: $email")
+                Log.d(TAG, "authWithGoogleAccount: Uid: $uid")
+                Log.d(TAG, "authWithGoogleAccount: Email: $email")
 
                 // check user is existing or new
                 if (authResult.additionalUserInfo!!.isNewUser) {
                     // create account - user is new
-                    Log.d(TAG, "firebaseAuthWithGoogleAccount: Account created...\n$email")
+                    Log.d(TAG, "authWithGoogleAccount: Account created...\n$email")
                     Toast.makeText(requireActivity(), "Your account has been created", Toast.LENGTH_SHORT).show()
                 } else {
-                    Log.d(TAG, "firebaseAuthWithGoogleAccount: User is exist\n$email")
+                    Log.d(TAG, "authWithGoogleAccount: User is exist\n$email")
                     Toast.makeText(requireActivity(), "Login successful", Toast.LENGTH_SHORT).show()
                 }
 
@@ -153,7 +163,7 @@ class LoginFragment : Fragment() {
 
             }.addOnFailureListener{ e ->
                 // login failed
-                Log.d(TAG, "firebaseAuthWithGoogleAccount: Login failed due to ${e.message}")
+                Log.d(TAG, "authWithGoogleAccount: Login failed due to ${e.message}")
                 Toast.makeText(requireActivity(), "Login failed due to ${e.message}", Toast.LENGTH_SHORT).show()
             }
     }
@@ -165,10 +175,64 @@ class LoginFragment : Fragment() {
     private fun setOnClickLoginButton() {
         binding.apply {
             btnLogin.setOnClickListener{
-                val intent = LoginFragmentDirections.actionLoginFragmentToMainFragment()
-                findNavController().navigate(intent)
+                getEditTextInputs()
             }
         }
+    }
+
+    /*
+    * Before register, get user input from edit text first
+    * Add validation if input is empty or false input
+    */
+    private fun getEditTextInputs() {
+
+        binding.apply {
+            val email = etEmail.text.toString().trim()
+            val password = etPassword.text.toString().trim()
+
+            if (email.isEmpty()) {
+                etEmail.error = "Email harus diisi"
+                etEmail.requestFocus()
+                return
+            }
+
+            if (password.isEmpty()) {
+                etPassword.error = "Password harus diisi"
+                etPassword.requestFocus()
+                return
+            }
+
+            if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                etEmail.error = "Email tidak valid"
+                etEmail.requestFocus()
+                return
+            }
+
+            if (password.isEmpty() || password.length < 6) {
+                etPassword.error = "Password harus lebih dari 6 karakter"
+                etPassword.requestFocus()
+                return
+            }
+
+            loginUser(email, password)
+        }
+    }
+
+    /*
+    * Handling user login
+    * By passing email and password
+    */
+    private fun loginUser(email: String, password: String) {
+        auth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener(requireActivity()){
+                if (it.isSuccessful) {
+                    val intent = LoginFragmentDirections.actionLoginFragmentToMainFragment()
+                    findNavController().navigate(intent)
+                } else {
+                    Log.d(TAG_LOGIN, "loginUser: ")
+                    Toast.makeText(requireActivity(), it.exception?.message, Toast.LENGTH_SHORT).show()
+                }
+            }
     }
 
     /*
