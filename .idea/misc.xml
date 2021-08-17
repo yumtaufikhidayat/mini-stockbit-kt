@@ -21,11 +21,11 @@
         <entry key="app/src/main/res/layout/fragment_chat.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_forgot_password.xml" value="0.18" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.159375" />
-        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.5" />
         <entry key="app/src/main/res/layout/fragment_main.xml" value="0.1828125" />
         <entry key="app/src/main/res/layout/fragment_portfolio.xml" value="0.1828125" />
         <entry key="app/src/main/res/layout/fragment_portofolio.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_register.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_register.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_register_using_email.xml" value="0.18" />
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_splashscreen.xml" value="0.159375" />

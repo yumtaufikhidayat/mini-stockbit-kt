@@ -135,6 +135,9 @@ class LoginFragment : Fragment() {
         }
     }
 
+    /*
+    * Handling login using Facebook
+    */
     private fun setOnClickFacebookLoginButton() {
         binding.apply {
 

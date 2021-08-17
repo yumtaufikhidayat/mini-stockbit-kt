@@ -45,6 +45,44 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:id="@+id/llFacebookRegister"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginHorizontal="20dp"-->
+<!--        android:padding="5dp"-->
+<!--        android:background="@drawable/background_stroke_black"-->
+<!--        android:focusable="true"-->
+<!--        android:clickable="true"-->
+<!--        android:foreground="?android:attr/selectableItemBackground"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/llGoogleLogin">-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/imgFacebook"-->
+<!--            android:layout_width="25dp"-->
+<!--            android:layout_height="25dp"-->
+<!--            android:layout_marginStart="5dp"-->
+<!--            android:src="@drawable/ic_facebook_logo"-->
+<!--            android:contentDescription="@null"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"/>-->
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/tvFacebookRegister"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="14sp"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="@id/imgFacebook"-->
+<!--            app:layout_constraintBottom_toBottomOf="@id/imgFacebook"/>-->
+
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
     <com.facebook.login.widget.LoginButton
         android:id="@+id/llFacebookLogin"
         android:layout_width="match_parent"
@@ -53,7 +91,6 @@
         android:layout_marginTop="10dp"
         android:layout_marginHorizontal="20dp"
         android:padding="5dp"
-        android:background="@drawable/background_stroke_black"
         android:focusable="true"
         android:clickable="true"
         android:foreground="?android:attr/selectableItemBackground"

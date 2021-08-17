@@ -9,11 +9,15 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.facebook.*
+import com.facebook.login.LoginResult
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
+import com.google.firebase.auth.AuthCredential
+import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.taufik.ministockbit.R
@@ -25,12 +29,14 @@ class RegisterFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var googleSignInClient: GoogleSignInClient
+    private lateinit var callbackFacebookManager: CallbackManager
     private lateinit var auth: FirebaseAuth
+    private lateinit var accessTokenTracker: AccessTokenTracker
 
     companion object {
         const val CODE_SIGN_IN = 1000
+        const val CODE_FACEBOOK_LOGIN = 1001
         const val TAG = "TAG_GOOGLE_SIGN_IN"
-        const val TAG_REGISTER = "TAG_REGISTER"
     }
     
     override fun onCreateView(
@@ -45,11 +51,13 @@ class RegisterFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        initFirebase()
+
         setConfigGoogleSignIn()
 
+        setConfigFacebookLogin()
+
         setHandlingOnClick()
-        
-        initFirebase()
     }
 
     /*
@@ -58,6 +66,8 @@ class RegisterFragment : Fragment() {
     private fun setHandlingOnClick() {
 
         setOnClickGoogleSignIn()
+
+        setOnClickFacebookLoginButton()
 
         setOnRegisterButton()
 
@@ -97,6 +107,71 @@ class RegisterFragment : Fragment() {
         }
     }
 
+    /*
+    * Handling login using Facebook
+    */
+    private fun setOnClickFacebookLoginButton() {
+        binding.apply {
+
+            llFacebookRegister.registerCallback(callbackFacebookManager, object :
+                FacebookCallback<LoginResult> {
+                override fun onSuccess(result: LoginResult?) {
+                    Log.d(LoginFragment.TAG, "onSuccess: $result")
+
+                    handleFacebookToken(result?.accessToken)
+                    val intent = LoginFragmentDirections.actionLoginFragmentToMainFragment()
+                    findNavController().navigate(intent)
+                }
+
+                override fun onCancel() {
+                    Log.d(LoginFragment.TAG, "onCancel: ")
+                }
+
+                override fun onError(error: FacebookException?) {
+                    Log.d(LoginFragment.TAG, "onError: ${error.toString()}")
+                }
+            })
+
+            accessTokenTracker = object : AccessTokenTracker(){
+                override fun onCurrentAccessTokenChanged(
+                    oldAccessToken: AccessToken?,
+                    currentAccessToken: AccessToken?
+                ) {
+                    if (currentAccessToken == null) {
+                        auth.signOut()
+                    }
+                }
+            }
+        }
+    }
+
+    /*
+    * Handle token of facebook login success
+    */
+    private fun handleFacebookToken(accessToken: AccessToken?) {
+        Log.d(LoginFragment.TAG, "handleFacebookToken: $accessToken")
+        val authCredential: AuthCredential = FacebookAuthProvider.getCredential(accessToken?.token.toString())
+        auth.signInWithCredential(authCredential)
+            .addOnCompleteListener(requireActivity()) {
+                if (it.isSuccessful) {
+                    Log.d(LoginFragment.TAG, "handleFacebookToken: ")
+                    val intent = LoginFragmentDirections.actionLoginFragmentToMainFragment()
+                    findNavController().navigate(intent)
+                } else {
+                    Log.d(LoginFragment.TAG, "handleErrorFacebookToken: ${it.exception?.message}")
+                }
+            }
+    }
+
+    /*
+    * Handling configuration for Facebook login
+    */
+    private fun setConfigFacebookLogin() {
+        FacebookSdk.sdkInitialize(requireContext())
+        callbackFacebookManager = CallbackManager.Factory.create()
+        Log.d(LoginFragment.TAG, "setConfigFacebookLogin: ")
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == CODE_SIGN_IN) {
@@ -108,6 +183,8 @@ class RegisterFragment : Fragment() {
             } catch (e: Exception) {
                 Log.d(TAG, "onActivityResult: ${e.message}")
             }
+        } else if (requestCode == LoginFragment.CODE_FACEBOOK_LOGIN) {
+            callbackFacebookManager.onActivityResult(requestCode, resultCode, data)
         }
     }
 
