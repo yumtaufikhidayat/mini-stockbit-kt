@@ -45,7 +45,7 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <com.facebook.login.widget.LoginButton
         android:id="@+id/llFacebookLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -57,31 +57,7 @@
         android:focusable="true"
         android:clickable="true"
         android:foreground="?android:attr/selectableItemBackground"
-        app:layout_constraintTop_toBottomOf="@id/llGoogleLogin">
-
-        <ImageView
-            android:id="@+id/imgFacebook"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginStart="5dp"
-            android:src="@drawable/ic_facebook_logo"
-            android:contentDescription="@null"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/tvFacebookLogin"
-            android:textColor="@color/black"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/imgFacebook"
-            app:layout_constraintBottom_toBottomOf="@id/imgFacebook"/>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintTop_toBottomOf="@id/llGoogleLogin"/>
 
     <LinearLayout
         android:id="@+id/llAnotherLogin"

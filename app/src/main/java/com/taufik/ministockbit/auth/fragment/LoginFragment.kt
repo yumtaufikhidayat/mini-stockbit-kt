@@ -10,11 +10,15 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.facebook.*
+import com.facebook.login.LoginResult
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
+import com.google.firebase.auth.AuthCredential
+import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.taufik.ministockbit.R
@@ -26,10 +30,13 @@ class LoginFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var googleSignInClient: GoogleSignInClient
+    private lateinit var callbackFacebookManager: CallbackManager
     private lateinit var auth: FirebaseAuth
+    private lateinit var accessTokenTracker: AccessTokenTracker
 
     companion object {
-        const val CODE_SIGN_IN = 1000
+        const val CODE_GOOGLE_SIGN_IN = 1000
+        const val CODE_FACEBOOK_LOGIN = 1001
         const val TAG = "TAG_GOOGLE_SIGN_IN"
         const val TAG_LOGIN = "TAG_LOGIN"
     }
@@ -46,9 +53,11 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        initFirebase()
+
         setConfigGoogleSignIn()
 
-        initFirebase()
+        setConfigFacebookLogin()
 
         checkUser()
 
@@ -61,6 +70,8 @@ class LoginFragment : Fragment() {
     private fun setHandlingOnClick() {
 
         setOnClickGoogleSignIn()
+
+        setOnClickFacebookLoginButton()
 
         setOnClickLoginButton()
 
@@ -81,6 +92,15 @@ class LoginFragment : Fragment() {
             .build()
 
         googleSignInClient = GoogleSignIn.getClient(requireActivity(), googleSignInOptions)
+    }
+
+    /*
+    * Handling configuration for Facebook login
+    */
+    private fun setConfigFacebookLogin() {
+        FacebookSdk.sdkInitialize(requireContext())
+        callbackFacebookManager = CallbackManager.Factory.create()
+        Log.d(TAG, "setConfigFacebookLogin: ")
     }
 
     /*
@@ -108,16 +128,68 @@ class LoginFragment : Fragment() {
     */
     private fun setOnClickGoogleSignIn() {
         binding.apply {
-            llGoogleLogin.setOnClickListener{
+            llGoogleLogin.setOnClickListener {
                 val intent = googleSignInClient.signInIntent
-                startActivityForResult(intent, CODE_SIGN_IN)
+                startActivityForResult(intent, CODE_GOOGLE_SIGN_IN)
             }
         }
     }
 
+    private fun setOnClickFacebookLoginButton() {
+        binding.apply {
+
+            llFacebookLogin.registerCallback(callbackFacebookManager, object : FacebookCallback<LoginResult> {
+                override fun onSuccess(result: LoginResult?) {
+                    Log.d(TAG, "onSuccess: $result")
+
+                    handleFacebookToken(result?.accessToken)
+                    val intent = LoginFragmentDirections.actionLoginFragmentToMainFragment()
+                    findNavController().navigate(intent)
+                }
+
+                override fun onCancel() {
+                    Log.d(TAG, "onCancel: ")
+                }
+
+                override fun onError(error: FacebookException?) {
+                    Log.d(TAG, "onError: ${error.toString()}")
+                }
+            })
+
+            accessTokenTracker = object : AccessTokenTracker(){
+                override fun onCurrentAccessTokenChanged(
+                    oldAccessToken: AccessToken?,
+                    currentAccessToken: AccessToken?
+                ) {
+                    if (currentAccessToken == null) {
+                        auth.signOut()
+                    }
+                }
+            }
+        }
+    }
+
+    /*
+    * Handle token of facebook login success
+    */
+    private fun handleFacebookToken(accessToken: AccessToken?) {
+        Log.d(TAG, "handleFacebookToken: $accessToken")
+        val authCredential: AuthCredential = FacebookAuthProvider.getCredential(accessToken?.token.toString())
+        auth.signInWithCredential(authCredential)
+            .addOnCompleteListener(requireActivity()) {
+                if (it.isSuccessful) {
+                    Log.d(TAG, "handleFacebookToken: ")
+                    val intent = LoginFragmentDirections.actionLoginFragmentToMainFragment()
+                    findNavController().navigate(intent)
+                } else {
+                    Log.d(TAG, "handleErrorFacebookToken: ${it.exception?.message}")
+                }
+            }
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == CODE_SIGN_IN) {
+        if (requestCode == CODE_GOOGLE_SIGN_IN) {
             Log.d(TAG, "onActivityResult: Google Sign In Intent Result")
             val accountTask = GoogleSignIn.getSignedInAccountFromIntent(data)
             try {
@@ -126,6 +198,8 @@ class LoginFragment : Fragment() {
             } catch (e: Exception) {
                 Log.d(TAG, "onActivityResult: ${e.message}")
             }
+        } else if (requestCode == CODE_FACEBOOK_LOGIN) {
+            callbackFacebookManager.onActivityResult(requestCode, resultCode, data)
         }
     }
 

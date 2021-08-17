@@ -27,4 +27,8 @@
     <string name="btnRegisterEmail">Daftar dengan Email</string>
     <string name="btnNext">Selanjutnya</string>
 
+    // Facebook
+    <string name="facebook_app_id">171026421784506</string>
+    <string name="fb_login_protocol_scheme">fb171026421784506</string>
+
 </resources>
