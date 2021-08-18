@@ -1,3 +1,19 @@
+## Mini Stockbit
+Aplikasi ini dibuat dengan tech stack:
+- 100% Kotlin
+- Material Design
+- ViewBinding
+- Single Activity
+- Navigation Component
+- Firebase Authentication
+- Facebook SDK
+- Retrofit
+- Model View ViewModel (MVVM) Pattern
+- Dagger Hilt
+- Flow/Coroutine
+- Paging 3
+
+Tech stack lainnya:
 ### Software
 #### Operating System
 - OS Name : Linux Mint (based on Ubuntu 20.04 LTS)
