@@ -24,6 +24,8 @@
     <string name="tvStockFulName">Adaro Energy Tbk</string>
     <string name="tvStockPrice">1350</string>
     <string name="tvStockPriceDesc">+20 (-1.83%)</string>
+    <string name="tvNoResult">Tidak ada hasil</string>
+    <string name="tvResultNotLoaded">Hasil tidak dapat ditampilkan</string>
 
     // Button
     <string name="btnLogin">Login</string>
@@ -31,6 +33,7 @@
     <string name="btnRegister">Daftar</string>
     <string name="btnRegisterEmail">Daftar dengan Email</string>
     <string name="btnNext">Selanjutnya</string>
+    <string name="btnRetry">Coba Lagi</string>
 
     // Facebook
     <string name="facebook_app_id">171026421784506</string>

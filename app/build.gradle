@@ -3,6 +3,9 @@ plugins {
     id 'kotlin-android'
     id 'com.google.gms.google-services'
     id "androidx.navigation.safeargs"
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -16,6 +19,8 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "CRYPTO_API_KEY", api_key)
     }
 
     buildTypes {
@@ -59,4 +64,24 @@ dependencies {
 
     // Facebook SDK
     implementation 'com.facebook.android:facebook-android-sdk:[5,6)'
+
+    // Dagger Hilt
+    implementation "com.google.dagger:hilt-android:$hiltVersion"
+    kapt "com.google.dagger:hilt-android-compiler:$hiltVersion"
+    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$hiltAndroidXVersion"
+    kapt "androidx.hilt:hilt-compiler:$hiltAndroidXVersion"
+
+    // Retrofit + GSON
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+
+    // Glide
+    implementation "com.github.bumptech.glide:glide:$glideVersion"
+
+    // Paging 3
+    implementation "androidx.paging:paging-runtime:$pagingVersion"
+}
+
+kapt {
+    correctErrorTypes true
 }
