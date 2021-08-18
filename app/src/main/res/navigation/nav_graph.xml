@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.taufik.ministockbit.auth.fragment.LoginFragment"
+        android:name="com.taufik.ministockbit.ui.auth.fragment.LoginFragment"
         android:label="Masuk"
         tools:layout="@layout/fragment_login">
         <action
@@ -35,7 +35,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.taufik.ministockbit.auth.fragment.RegisterFragment"
+        android:name="com.taufik.ministockbit.ui.auth.fragment.RegisterFragment"
         android:label="Daftar"
         tools:layout="@layout/fragment_register">
         <action
@@ -55,7 +55,7 @@
     </fragment>
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.taufik.ministockbit.main.MainFragment"
+        android:name="com.taufik.ministockbit.ui.main.MainFragment"
         android:label="Beranda"
         tools:layout="@layout/fragment_main">
         <action
@@ -70,7 +70,7 @@
     </fragment>
     <fragment
         android:id="@+id/forgotPasswordFragment"
-        android:name="com.taufik.ministockbit.auth.fragment.ForgotPasswordFragment"
+        android:name="com.taufik.ministockbit.ui.auth.fragment.ForgotPasswordFragment"
         android:label="Lupa Password"
         tools:layout="@layout/fragment_forgot_password">
         <action
@@ -83,7 +83,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerUsingEmailFragment"
-        android:name="com.taufik.ministockbit.auth.fragment.RegisterUsingEmailFragment"
+        android:name="com.taufik.ministockbit.ui.auth.fragment.RegisterUsingEmailFragment"
         android:label="Daftar Akun Baru"
         tools:layout="@layout/fragment_register_using_email">
         <action

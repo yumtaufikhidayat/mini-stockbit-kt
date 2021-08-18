@@ -19,6 +19,11 @@
     <string name="tvFulname">Nama Lengkap</string>
     <string name="tvContactUs">Contact us</string>
     <string name="tvNotifications">Notifications</string>
+    <string name="tvLogout">Logout</string>
+    <string name="tvStockName">ADRO</string>
+    <string name="tvStockFulName">Adaro Energy Tbk</string>
+    <string name="tvStockPrice">1350</string>
+    <string name="tvStockPriceDesc">+20 (-1.83%)</string>
 
     // Button
     <string name="btnLogin">Login</string>

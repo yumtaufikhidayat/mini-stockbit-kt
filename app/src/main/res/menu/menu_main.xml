@@ -7,4 +7,12 @@
         android:menuCategory="secondary"
         android:icon="@drawable/ic_outline_notification"
         app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/nav_exit"
+        android:title="@string/tvLogout"
+        android:menuCategory="secondary"
+        android:icon="@drawable/ic_exit"
+        app:showAsAction="ifRoom"/>
+
 </menu>

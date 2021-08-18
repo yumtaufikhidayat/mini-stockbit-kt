@@ -12,10 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MiniStockbit">
         <activity
-            android:name=".auth.activity.AuthActivity"
+            android:name="com.taufik.ministockbit.ui.auth.activity.AuthActivity"
             android:exported="true"/>
         <activity
-            android:name=".splashscreen.SplashscreenActivity"
+            android:name="com.taufik.ministockbit.ui.splashscreen.SplashscreenActivity"
             android:exported="true"
             android:theme="@style/ThemeNoActionBar">
             <intent-filter>
