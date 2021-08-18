@@ -12,7 +12,9 @@ import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.taufik.ministockbit.R
 import com.taufik.ministockbit.databinding.ActivityAuthBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class AuthActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityAuthBinding

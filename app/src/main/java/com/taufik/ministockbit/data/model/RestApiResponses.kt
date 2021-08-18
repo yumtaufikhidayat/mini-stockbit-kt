@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class MiniStockbitResponse(
+data class RestApiResponses(
     @SerializedName("Message")
     val message: String,
     @SerializedName("Type")

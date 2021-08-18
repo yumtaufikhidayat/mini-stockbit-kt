@@ -7,7 +7,9 @@ import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.taufik.ministockbit.R
 import com.taufik.ministockbit.databinding.FragmentMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainFragment : Fragment() {
 
     private var _binding: FragmentMainBinding? = null

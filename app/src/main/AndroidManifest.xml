@@ -10,7 +10,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MiniStockbit">
+        android:theme="@style/Theme.MiniStockbit"
+        android:name=".data.application.MiniStockbitApplication">
         <activity
             android:name="com.taufik.ministockbit.ui.auth.activity.AuthActivity"
             android:exported="true"/>
