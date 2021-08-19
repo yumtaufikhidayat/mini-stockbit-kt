@@ -64,3 +64,16 @@ This application build with:
 
 ##### Facebook SDK
         - implementation 'com.facebook.android:facebook-android-sdk:[5,6)'
+
+##### Dagger Hilt
+        - implementation "com.google.dagger:hilt-android:$hiltVersion"
+        - kapt "com.google.dagger:hilt-android-compiler:$hiltVersion"
+        - implementation "androidx.hilt:hilt-lifecycle-viewmodel:$hiltAndroidXVersion"
+        - kapt "androidx.hilt:hilt-compiler:$hiltAndroidXVersion"
+
+#### Retrofit + GSON
+        - implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+        - implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+
+#### Paging 3
+        - implementation "androidx.paging:paging-runtime:$pagingVersion"
