@@ -29,11 +29,18 @@ class MainAdapter : PagingDataAdapter<Data, MainAdapter.MainViewHolder>(WATCHLIS
             binding.apply {
                 tvStockName.text = data.coinInfo.name
                 tvStockFulName.text = data.coinInfo.fullName
-                tvStockPrice.text = data.display.idr.price
+
+                var price = data.display?.idr?.price
+                price = price?.replace("IDR", "")
+                tvStockPrice.text = price
+
+                var changePct24Hour = data.display?.idr?.changePct24Hour
+                changePct24Hour = changePct24Hour?.replace("-", "")
+
                 tvStockPriceDesc.text = String.format(
-                    "%s, %s",
-                    data.display.idr.changePctDay,
-                    data.display.idr.changePct24Hour
+                    "%s (%s%%)",
+                    data.display?.idr?.changePctDay,
+                    changePct24Hour
                 )
             }
         }

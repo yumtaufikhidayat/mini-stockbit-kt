@@ -12,5 +12,5 @@ data class Data(
     @SerializedName("RAW")
     val raw: RAW,
     @SerializedName("DISPLAY")
-    val display: DISPLAY
+    val display: DISPLAY?
 ): Parcelable

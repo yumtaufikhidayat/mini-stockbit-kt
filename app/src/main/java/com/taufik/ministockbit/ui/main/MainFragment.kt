@@ -82,7 +82,11 @@ class MainFragment : Fragment() {
         }
 
         viewModel.data.observe(viewLifecycleOwner) {
-            adapterMain.submitData(viewLifecycleOwner.lifecycle, it)
+            if (it != null) {
+                adapterMain.submitData(viewLifecycleOwner.lifecycle, it)
+            } else {
+                Log.d(TAG, "setWatchlistData: $it")
+            }
         }
     }
 

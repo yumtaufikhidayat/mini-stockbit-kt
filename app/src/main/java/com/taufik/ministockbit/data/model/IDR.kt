@@ -85,7 +85,7 @@ data class IDR(
     @SerializedName("MKTCAP")
     val mktCap: Double,
     @SerializedName("MKTCAPPENALTY")
-    val mktCapPenalty: Int,
+    val mktCapPenalty: Double,
     @SerializedName("TOTALVOLUME24H")
     val totalVolume24H: Double,
     @SerializedName("TOTALVOLUME24HTO")
