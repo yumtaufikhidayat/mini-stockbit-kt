@@ -3,8 +3,10 @@ package com.taufik.ministockbit.ui.main
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.taufik.ministockbit.R
@@ -79,10 +81,14 @@ class MainFragment : Fragment() {
         binding.apply {
             rvMain.layoutManager = LinearLayoutManager(requireActivity())
             rvMain.setHasFixedSize(true)
+            rvMain.itemAnimator = null
             rvMain.adapter = adapterMain.withLoadStateHeaderAndFooter(
                 header = MainLoadStateAdapter { adapterMain.retry() },
                 footer = MainLoadStateAdapter { adapterMain.retry() },
             )
+            btnRetry.setOnClickListener {
+                adapterMain.retry()
+            }
         }
 
         viewModel.data.observe(viewLifecycleOwner) {
@@ -90,6 +96,25 @@ class MainFragment : Fragment() {
                 adapterMain.submitData(viewLifecycleOwner.lifecycle, it)
             } else {
                 Log.d(TAG, "setWatchlistData: $it")
+            }
+        }
+
+        adapterMain.addLoadStateListener { loadSate ->
+            binding.apply {
+                progressBarMain.isVisible = loadSate.source.refresh is LoadState.Loading
+                rvMain.isVisible = loadSate.source.refresh is LoadState.NotLoading
+                btnRetry.isVisible = loadSate.source.refresh is LoadState.Error
+
+                // for empty view
+                if (loadSate.source.refresh is LoadState.NotLoading
+                    && loadSate.append.endOfPaginationReached
+                    && adapterMain.itemCount < 1
+                ) {
+                    rvMain.isVisible = false
+                    tvNoResultError.isVisible = true
+                } else {
+                    tvNoResultError.isVisible = false
+                }
             }
         }
     }
