@@ -26,17 +26,17 @@ data class CoinInfo(
     @SerializedName("Rating")
     val rating: Rating,
     @SerializedName("NetHashesPerSecond")
-    val netHashesPerSecond: Int,
+    val netHashesPerSecond: Double,
     @SerializedName("BlockNumber")
-    val blockNumber: Int,
+    val blockNumber: Double,
     @SerializedName("BlockTime")
-    val blockTime: Int,
+    val blockTime: Double,
     @SerializedName("BlockReward")
-    val blockReward: Int,
+    val blockReward: Double,
     @SerializedName("AssetLaunchDate")
     val assetLaunchDate: String,
     @SerializedName("MaxSupply")
-    val maxSupply: Int,
+    val maxSupply: Double,
     @SerializedName("Type")
     val type: Int,
     @SerializedName("DocumentType")

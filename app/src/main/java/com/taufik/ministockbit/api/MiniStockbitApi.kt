@@ -1,7 +1,6 @@
 package com.taufik.ministockbit.api
 
-import com.taufik.ministockbit.data.model.RestApiResponses
-import retrofit2.Call
+import com.taufik.ministockbit.data.model.MiniStockbitResponse
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Query
@@ -14,7 +13,7 @@ interface MiniStockbitApi {
         @Query("limit") limit: Int,
         @Query("page") page: Int,
         @Query("tsym") tsym: String
-    ): Call<RestApiResponses>
+    ): MiniStockbitResponse
 
     @GET(UrlEndpoint.TOTAL_TOP_TIER_VOL_FULL)
     suspend fun getAllWatchlist(
@@ -22,7 +21,5 @@ interface MiniStockbitApi {
         @Query("page") page: Int,
         @Query("tsym") tsym: String,
         @Query("api_key") apiKey: String
-    ): Call<RestApiResponses>
-
-
+    ): MiniStockbitResponse
 }

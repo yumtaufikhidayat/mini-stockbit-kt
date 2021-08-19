@@ -8,5 +8,5 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class DISPLAY(
     @SerializedName("IDR")
-    val iDR: IDRX
+    val idr: IDRX
 ): Parcelable

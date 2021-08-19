@@ -7,5 +7,5 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class RAW(
     @SerializedName("IDR")
-    val iDR: IDR
+    val idr: IDR
 ): Parcelable

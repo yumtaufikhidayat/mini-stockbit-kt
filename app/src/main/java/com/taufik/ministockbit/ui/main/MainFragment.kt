@@ -4,9 +4,13 @@ import android.os.Bundle
 import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.taufik.ministockbit.R
+import com.taufik.ministockbit.data.viewmodel.MiniStockbitViewModel
 import com.taufik.ministockbit.databinding.FragmentMainBinding
+import com.taufik.ministockbit.ui.main.adapter.MainAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -16,6 +20,8 @@ class MainFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var adapterMain: MainAdapter
+    private val viewModel by viewModels<MiniStockbitViewModel>()
 
     companion object {
         const val TAG = "MAIN_FRAGMENT"
@@ -38,6 +44,8 @@ class MainFragment : Fragment() {
         initFirebase()
 
         checkUser()
+
+        setWatchlistData()
     }
 
     /*
@@ -57,6 +65,24 @@ class MainFragment : Fragment() {
             Log.d(TAG, "checkUser: $firebaseUser")
         } else {
             Log.d(TAG, "checkUser: $firebaseUser")
+        }
+    }
+
+    /*
+    * Set all watchlist data
+    */
+    private fun setWatchlistData() {
+
+        adapterMain = MainAdapter()
+
+        binding.apply {
+            rvMain.layoutManager = LinearLayoutManager(requireActivity())
+            rvMain.setHasFixedSize(true)
+            rvMain.adapter = adapterMain
+        }
+
+        viewModel.data.observe(viewLifecycleOwner) {
+            adapterMain.submitData(viewLifecycleOwner.lifecycle, it)
         }
     }
 

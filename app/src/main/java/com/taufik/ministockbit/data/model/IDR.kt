@@ -23,19 +23,19 @@ data class IDR(
     @SerializedName("MEDIAN")
     val median: Double,
     @SerializedName("LASTVOLUME")
-    val lastVolume: Int,
+    val lastVolume: Double,
     @SerializedName("LASTVOLUMETO")
     val lastVolumeTo: Double,
     @SerializedName("LASTTRADEID")
     val lastTradeId: String,
     @SerializedName("VOLUMEDAY")
-    val volumeDay: Int,
+    val volumeDay: Double,
     @SerializedName("VOLUMEDAYTO")
-    val volumeDayTo: Int,
+    val volumeDayTo: Double,
     @SerializedName("VOLUME24HOUR")
-    val volume24Hour: Int,
+    val volume24Hour: Double,
     @SerializedName("VOLUME24HOURTO")
-    val volume24HourTo: Int,
+    val volume24HourTo: Double,
     @SerializedName("OPENDAY")
     val openDay: Double,
     @SerializedName("HIGHDAY")
@@ -51,9 +51,9 @@ data class IDR(
     @SerializedName("LASTMARKET")
     val lastMarket: String,
     @SerializedName("VOLUMEHOUR")
-    val volumeHour: Int,
+    val volumeHour: Double,
     @SerializedName("VOLUMEHOURTO")
-    val volumeHourTo: Int,
+    val volumeHourTo: Double,
     @SerializedName("OPENHOUR")
     val openHour: Double,
     @SerializedName("HIGHHOUR")
@@ -61,9 +61,9 @@ data class IDR(
     @SerializedName("LOWHOUR")
     val lowHour: Double,
     @SerializedName("TOPTIERVOLUME24HOUR")
-    val topTierVolume24Hour: Int,
+    val topTierVolume24Hour: Double,
     @SerializedName("TOPTIERVOLUME24HOURTO")
-    val topTierVolume24HourTo: Int,
+    val topTierVolume24HourTo: Double,
     @SerializedName("CHANGE24HOUR")
     val change24Hour: Double,
     @SerializedName("CHANGEPCT24HOUR")
@@ -81,19 +81,19 @@ data class IDR(
     @SerializedName("CONVERSIONSYMBOL")
     val conversionSymbol: String,
     @SerializedName("SUPPLY")
-    val supply: Int,
+    val supply: Double,
     @SerializedName("MKTCAP")
-    val mktCap: Int,
+    val mktCap: Double,
     @SerializedName("MKTCAPPENALTY")
     val mktCapPenalty: Int,
     @SerializedName("TOTALVOLUME24H")
-    val totalVolume24H: Int,
+    val totalVolume24H: Double,
     @SerializedName("TOTALVOLUME24HTO")
-    val totalVolume24HTo: Int,
+    val totalVolume24HTo: Double,
     @SerializedName("TOTALTOPTIERVOLUME24H")
-    val totalTopTierVolume24H: Int,
+    val totalTopTierVolume24H: Double,
     @SerializedName("TOTALTOPTIERVOLUME24HTO")
-    val totalTopTierVolume24HTo: Int,
+    val totalTopTierVolume24HTo: Double,
     @SerializedName("IMAGEURL")
     val imageUrl: String
 ): Parcelable
