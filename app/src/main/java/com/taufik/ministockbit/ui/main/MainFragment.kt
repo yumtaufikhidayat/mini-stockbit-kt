@@ -11,6 +11,7 @@ import com.taufik.ministockbit.R
 import com.taufik.ministockbit.data.viewmodel.MiniStockbitViewModel
 import com.taufik.ministockbit.databinding.FragmentMainBinding
 import com.taufik.ministockbit.ui.main.adapter.MainAdapter
+import com.taufik.ministockbit.ui.main.adapter.MainLoadStateAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -78,7 +79,10 @@ class MainFragment : Fragment() {
         binding.apply {
             rvMain.layoutManager = LinearLayoutManager(requireActivity())
             rvMain.setHasFixedSize(true)
-            rvMain.adapter = adapterMain
+            rvMain.adapter = adapterMain.withLoadStateHeaderAndFooter(
+                header = MainLoadStateAdapter { adapterMain.retry() },
+                footer = MainLoadStateAdapter { adapterMain.retry() },
+            )
         }
 
         viewModel.data.observe(viewLifecycleOwner) {
