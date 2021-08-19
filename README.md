@@ -1,5 +1,5 @@
 ## Mini Stockbit
-Aplikasi ini dibuat dengan tech stack:
+This application build with:
 - 100% Kotlin
 - Material Design
 - ViewBinding
@@ -13,7 +13,6 @@ Aplikasi ini dibuat dengan tech stack:
 - Flow/Coroutine
 - Paging 3
 
-Tech stack lainnya:
 ### Software
 #### Operating System
 - OS Name : Linux Mint (based on Ubuntu 20.04 LTS)

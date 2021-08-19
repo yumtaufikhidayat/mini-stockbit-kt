@@ -15,10 +15,12 @@
         android:name=".data.application.MiniStockbitApplication">
         <activity
             android:name="com.taufik.ministockbit.ui.auth.activity.AuthActivity"
-            android:exported="true"/>
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.taufik.ministockbit.ui.splashscreen.SplashscreenActivity"
             android:exported="true"
+            android:screenOrientation="portrait"
             android:theme="@style/ThemeNoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
