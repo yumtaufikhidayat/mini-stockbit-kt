@@ -48,6 +48,8 @@ class MainFragment : Fragment() {
 
         checkUser()
 
+        swipeRefreshLayoutOnRefreshListener()
+
         setWatchlistData()
     }
 
@@ -68,6 +70,12 @@ class MainFragment : Fragment() {
             Log.d(TAG, "checkUser: $firebaseUser")
         } else {
             Log.d(TAG, "checkUser: $firebaseUser")
+        }
+    }
+
+    private fun swipeRefreshLayoutOnRefreshListener(){
+        binding.apply {
+            swipeRefreshMain.setOnRefreshListener { setWatchlistData() }
         }
     }
 
@@ -101,6 +109,7 @@ class MainFragment : Fragment() {
 
         adapterMain.addLoadStateListener { loadSate ->
             binding.apply {
+                swipeRefreshMain.isRefreshing = loadSate.source.refresh is LoadState.Loading
                 progressBarMain.isVisible = loadSate.source.refresh is LoadState.Loading
                 rvMain.isVisible = loadSate.source.refresh is LoadState.NotLoading
                 btnRetry.isVisible = loadSate.source.refresh is LoadState.Error
